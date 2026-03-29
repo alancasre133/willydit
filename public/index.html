@@ -107,7 +107,74 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7em;
+            overflow: hidden;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .people-section {
+            margin-top: 48px;
+            text-align: left;
+            width: 100%;
+            max-width: 420px;
+        }
+        .people-title {
+            color: #1a1a2e;
+            font-size: 1.15em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        .people-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .person-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .person-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e6f0fa;
+            margin-right: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            overflow: hidden;
+        }
+        .person-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .person-details {
+            flex: 1;
+        }
+        .person-name {
+            font-weight: 600;
+            color: #222;
+            font-size: 1.05em;
+        }
+        .person-role {
+            color: #888;
+            font-size: 0.97em;
+        }
+        .footer {
+            margin-top: 32px;
+            color: #b0b0b0;
+            font-size: 0.98em;
+            letter-spacing: 1.2px;
+            text-align: center;
+            width: 100%;
         }
         .app-details {
             flex: 1;
@@ -136,21 +203,21 @@
             <div class="apps-title">Nuestras Apps</div>
             <ul class="app-list">
                 <li class="app-item">
-                    <span class="app-icon">🖋️</span>
+                    <span class="app-icon"><img src="/src/images/adcraft.png" alt="AdCraft"></span>
                     <div class="app-details">
                         <a href="https://play.google.com/store/apps/details?id=com.adcraft.adcraft" target="_blank" rel="noopener" class="app-name">AdCraft — Write it. Ship it.</a>
                         <div class="app-id">com.adcraft.adcraft</div>
                     </div>
                 </li>
                 <li class="app-item">
-                    <span class="app-icon">🔊</span>
+                    <span class="app-icon"><img src="/src/images/audiocleaner.png" alt="Audio Cleaner"></span>
                     <div class="app-details">
                         <a href="https://play.google.com/store/apps/details?id=com.audiocleaner.app" target="_blank" rel="noopener" class="app-name">Audio Cleaner: Remove noise</a>
                         <div class="app-id">com.audiocleaner.app</div>
                     </div>
                 </li>
                 <li class="app-item">
-                    <span class="app-icon">📤</span>
+                    <span class="app-icon"><img src="/src/images/autosender.png" alt="Auto Sender"></span>
                     <div class="app-details">
                         <a href="https://play.google.com/store/apps/details?id=com.DigitalAndroidFocusReminder.focusreminder" target="_blank" rel="noopener" class="app-name">Auto Sender</a>
                         <div class="app-id">com.DigitalAndroidFocusReminder.focusreminder</div>
@@ -158,7 +225,20 @@
                 </li>
             </ul>
         </div>
-        <div class="company">SARAI</div>
+        <div class="people-section">
+            <div class="people-title">Quiénes somos</div>
+            <ul class="people-list">
+                <li class="person-item">
+                    <span class="person-avatar"><img src="https://www.gravatar.com/avatar/6e1e2e2e2e2e2e2e2e2e2e2e2e2e2e2e?d=identicon" alt="Alan Axel Castro"></span>
+                    <div class="person-details">
+                        <div class="person-name">Alan Axel Castro</div>
+                        <div class="person-role">Fundador & Desarrollador</div>
+                    </div>
+                </li>
+                <!-- Puedes agregar más personas aquí -->
+            </ul>
+        </div>
+        <div class="footer">&copy; 2026 Willydit. Todos los derechos reservados.</div>
     </div>
 </body>
 </html>
