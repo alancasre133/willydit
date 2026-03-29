@@ -5,15 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARAI - Willydit App</title>
     <link rel="icon" href="/public/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
-        .container { max-width: 400px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px 24px; text-align: center; }
-        .logo { width: 120px; height: 120px; margin-bottom: 20px; border-radius: 24px; background: #e6f0fa; display: inline-block; }
-        h1 { margin: 0 0 10px 0; color: #1a73e8; font-size: 2.2em; }
-        h2 { margin: 0 0 20px 0; color: #333; font-size: 1.1em; font-weight: 400; }
-        .contact { margin: 24px 0 0 0; font-size: 0.98em; color: #555; }
-        .contact a { color: #1a73e8; text-decoration: none; }
-        .company { margin-top: 32px; color: #888; font-size: 1em; letter-spacing: 2px; }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0; padding: 0;
+        }
+        .container {
+            max-width: 480px;
+            margin: 48px auto;
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.12), 0 1.5px 8px rgba(44,62,80,0.08);
+            padding: 40px 32px 32px 32px;
+            text-align: center;
+        }
+        .logo {
+            width: 110px; height: 110px;
+            margin-bottom: 18px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            display: inline-block;
+            box-shadow: 0 2px 12px rgba(26,115,232,0.08);
+        }
+        h1 {
+            margin: 0 0 8px 0;
+            color: #1a1a2e;
+            font-size: 2.5em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        h2 {
+            margin: 0 0 24px 0;
+            color: #3a3a4a;
+            font-size: 1.18em;
+            font-weight: 400;
+        }
+        .contact {
+            margin: 28px 0 0 0;
+            font-size: 1.05em;
+            color: #444;
+        }
+        .contact a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .company {
+            margin-top: 36px;
+            color: #b0b0b0;
+            font-size: 1.08em;
+            letter-spacing: 2.5px;
+        }
+        .apps-section {
+            margin-top: 36px;
+            text-align: left;
+        }
+        .apps-title {
+            color: #1a1a2e;
+            font-size: 1.18em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .app-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .app-item {
+            display: flex;
+            align-items: center;
+            background: #f5f7fa;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            padding: 12px 16px;
+            box-shadow: 0 1px 4px rgba(44,62,80,0.04);
+            transition: box-shadow 0.2s;
+        }
+        .app-item:hover {
+            box-shadow: 0 4px 16px rgba(44,62,80,0.10);
+        }
+        .app-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            background: #e6f0fa;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7em;
+        }
+        .app-details {
+            flex: 1;
+        }
+        .app-name {
+            font-weight: 600;
+            color: #222;
+            font-size: 1.08em;
+        }
+        .app-id {
+            color: #888;
+            font-size: 0.98em;
+        }
     </style>
 </head>
 <body>
@@ -24,6 +119,32 @@
         <div class="contact">
             <div><strong>Contacto:</strong> <a href="mailto:alanaxelcastroresendiz@gmail.com">alanaxelcastroresendiz@gmail.com</a></div>
             <div><strong>Teléfono:</strong> <a href="tel:+524871442708">+52 487 144 2708</a></div>
+        </div>
+        <div class="apps-section">
+            <div class="apps-title">Nuestras Apps</div>
+            <ul class="app-list">
+                <li class="app-item">
+                    <span class="app-icon">🖋️</span>
+                    <div class="app-details">
+                        <div class="app-name">AdCraft — Write it. Ship it.</div>
+                        <div class="app-id">com.adcraft.adcraft</div>
+                    </div>
+                </li>
+                <li class="app-item">
+                    <span class="app-icon">🔊</span>
+                    <div class="app-details">
+                        <div class="app-name">Audio Cleaner: Remove noise</div>
+                        <div class="app-id">com.audiocleaner.app</div>
+                    </div>
+                </li>
+                <li class="app-item">
+                    <span class="app-icon">📤</span>
+                    <div class="app-details">
+                        <div class="app-name">Auto Sender</div>
+                        <div class="app-id">com.DigitalAndroidFocusReminder.f...</div>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="company">SARAI</div>
     </div>
