@@ -3,149 +3,755 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alan Axel Castro - Willydit</title>
+    <title>Alan Axel Castro Reséndiz — Programmer Analyst @ Amazon</title>
+    <meta name="description" content="Computer Science Engineer building products at the intersection of AI, mobile, and great UX. Currently Programmer Analyst at Amazon Music Technologies.">
+    <meta name="theme-color" content="#0b1020">
     <link rel="icon" href="/src/images/willydi_logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="Alan Axel Castro Reséndiz">
+    <meta property="og:description" content="Programmer Analyst @ Amazon Music Technologies · Builder of mobile + AI products.">
+    <meta property="og:image" content="/src/images/profile.jpg">
+    <meta property="og:type" content="profile">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --bg: #f6f7fb;
+            --surface: #ffffff;
+            --surface-2: #f1f3f9;
+            --border: #e6e8ef;
+            --border-strong: #d6d9e3;
+            --text: #0b1020;
+            --text-muted: #5a6275;
+            --text-soft: #8089a0;
+            --accent: #2f5bff;
+            --accent-2: #6e4bff;
+            --accent-soft: #eaeeff;
+            --success: #16a36b;
+            --shadow-sm: 0 1px 2px rgba(11,16,32,.04), 0 1px 3px rgba(11,16,32,.06);
+            --shadow-md: 0 6px 24px rgba(11,16,32,.06), 0 2px 6px rgba(11,16,32,.04);
+            --shadow-lg: 0 20px 50px rgba(11,16,32,.10), 0 4px 12px rgba(11,16,32,.05);
+            --radius: 14px;
+            --radius-lg: 20px;
+        }
+
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
         body {
-            font-family: 'Montserrat', Arial, sans-serif;
-            background: radial-gradient(circle at 60% 40%, #e3f0ff 60%, #b3c6e0 100%);
-            margin: 0; padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background:
+                radial-gradient(1100px 600px at 85% -10%, #e4ebff 0%, transparent 60%),
+                radial-gradient(900px 500px at -10% 10%, #f0e9ff 0%, transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             min-height: 100vh;
-            min-width: 100vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .profile-container {
-            background: rgba(255,255,255,0.98);
-            border-radius: 32px;
-            box-shadow: 0 8px 32px rgba(44,62,80,0.12), 0 1.5px 8px rgba(44,62,80,0.08);
-            padding: 48px 36px 40px 36px;
-            text-align: center;
-            max-width: 420px;
-            width: 100%;
+        ::selection { background: var(--accent); color: #fff; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ===== Nav ===== */
+        .nav {
+            position: sticky; top: 0; z-index: 50;
+            backdrop-filter: saturate(180%) blur(12px);
+            -webkit-backdrop-filter: saturate(180%) blur(12px);
+            background: rgba(246,247,251,.72);
+            border-bottom: 1px solid rgba(11,16,32,.06);
         }
-        .profile-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: #e6f0fa;
-            margin: 0 auto 18px auto;
-            display: flex;
+        .nav-inner {
+            max-width: 1080px; margin: 0 auto;
+            padding: 14px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-back {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-muted); font-weight: 500; font-size: .95rem;
+        }
+        .nav-back:hover { color: var(--text); text-decoration: none; }
+        .nav-brand { display: inline-flex; align-items: center; gap: 10px; }
+        .nav-brand img { width: 28px; height: 28px; border-radius: 8px; }
+        .nav-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: var(--text); letter-spacing: .5px; }
+
+        /* ===== Layout ===== */
+        .wrap { max-width: 1080px; margin: 0 auto; padding: 56px 24px 80px; }
+        .section { margin-top: 72px; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+            color: var(--accent); font-weight: 500;
+            padding: 6px 10px; border-radius: 999px;
+            background: var(--accent-soft);
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem; font-weight: 700; letter-spacing: -.02em;
+            margin: 0 0 10px;
+        }
+        .section-sub { color: var(--text-muted); margin: 0 0 28px; max-width: 620px; }
+
+        /* ===== Hero ===== */
+        .hero {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 36px;
             align-items: center;
-            justify-content: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            position: relative;
             overflow: hidden;
         }
-        .profile-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
+        .hero::before {
+            content: ""; position: absolute; inset: 0;
+            background: radial-gradient(600px 200px at 100% 0%, rgba(47,91,255,.06), transparent 70%);
+            pointer-events: none;
         }
-        .profile-name {
-            font-size: 2em;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 8px;
+        .avatar {
+            position: relative;
+            width: 180px; height: 180px;
+            border-radius: 28px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            padding: 4px;
+            box-shadow: var(--shadow-md);
         }
-        .profile-role {
-            color: #1a73e8;
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 18px;
+        .avatar img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 24px;
+            display: block;
         }
-        .profile-bio {
-            color: #444;
-            font-size: 1.08em;
+        .avatar-status {
+            position: absolute; bottom: 6px; right: 6px;
+            background: var(--surface);
+            color: var(--success);
+            font-size: .75rem; font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 999px;
+            display: inline-flex; align-items: center; gap: 6px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        .avatar-status::before {
+            content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--success);
+            box-shadow: 0 0 0 4px rgba(22,163,107,.18);
+        }
+        .hero-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4.2vw, 2.8rem);
+            font-weight: 700; letter-spacing: -.025em;
+            margin: 0 0 10px; line-height: 1.1;
+        }
+        .hero-role {
+            font-size: 1.1rem; color: var(--text-muted); margin: 0 0 18px;
+        }
+        .hero-role strong { color: var(--text); font-weight: 600; }
+        .hero-meta {
+            display: flex; flex-wrap: wrap; gap: 18px;
+            color: var(--text-muted); font-size: .92rem;
             margin-bottom: 24px;
         }
-        .profile-contact {
-            margin-top: 18px;
-            color: #555;
-            font-size: 1em;
-        }
-        .profile-contact a {
-            color: #1a73e8;
+        .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+        .hero-meta svg { width: 16px; height: 16px; color: var(--text-soft); }
+        .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 11px 18px;
+            border-radius: 12px;
+            font-weight: 600; font-size: .95rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
             text-decoration: none;
-            font-weight: 600;
         }
-        .footer {
-            margin-top: 32px;
-            color: #b0b0b0;
-            font-size: 0.98em;
-            letter-spacing: 1.2px;
+        .btn svg { width: 16px; height: 16px; }
+        .btn-primary {
+            background: var(--text); color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); text-decoration: none; }
+        .btn-ghost {
+            background: var(--surface); color: var(--text);
+            border-color: var(--border-strong);
+        }
+        .btn-ghost:hover { background: var(--surface-2); text-decoration: none; }
+
+        /* ===== Stats strip ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-top: 24px;
+        }
+        .stat {
+            background: var(--surface);
+            padding: 22px 20px;
             text-align: center;
-            width: 100%;
+        }
+        .stat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem; font-weight: 700;
+            color: var(--text); letter-spacing: -.02em;
+        }
+        .stat-label { color: var(--text-muted); font-size: .82rem; margin-top: 4px; }
+
+        /* ===== About ===== */
+        .about-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 32px;
+            box-shadow: var(--shadow-sm);
+            color: var(--text-muted);
+            font-size: 1.02rem;
+        }
+        .about-card strong { color: var(--text); }
+
+        /* ===== Skills ===== */
+        .skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .skill-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px 22px;
+            box-shadow: var(--shadow-sm);
+        }
+        .skill-card h4 {
+            margin: 0 0 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .skill-card h4 svg { width: 18px; height: 18px; color: var(--accent); }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            font-size: .82rem; font-weight: 500;
+            padding: 5px 11px; border-radius: 999px;
+            background: var(--surface-2); color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        /* ===== Timeline ===== */
+        .timeline { position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: ""; position: absolute;
+            left: 8px; top: 6px; bottom: 6px; width: 2px;
+            background: linear-gradient(180deg, var(--border-strong), transparent);
+        }
+        .tl-item { position: relative; padding-bottom: 26px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot {
+            position: absolute; left: -26px; top: 22px;
+            width: 18px; height: 18px; border-radius: 50%;
+            background: var(--surface); border: 2px solid var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+        .tl-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px 22px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow .2s ease, transform .15s ease;
+        }
+        .tl-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .tl-head { display: flex; align-items: flex-start; gap: 14px; }
+        .tl-logo {
+            width: 44px; height: 44px; border-radius: 11px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            color: #fff; flex-shrink: 0;
+            font-size: 1.05rem;
+        }
+        .tl-meta { flex: 1; min-width: 0; }
+        .tl-company {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600; font-size: 1.05rem;
+            color: var(--text); text-decoration: none;
+        }
+        .tl-company:hover { color: var(--accent); text-decoration: none; }
+        .tl-role { color: var(--text-muted); font-size: .95rem; margin-top: 2px; }
+        .tl-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .78rem; color: var(--text-soft);
+            white-space: nowrap;
+        }
+        .tl-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+        .tl-desc {
+            margin: 12px 0 0;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+            color: var(--text-muted);
+            font-size: .92rem;
+            line-height: 1.55;
+        }
+
+        /* ===== Projects ===== */
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .project-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 22px;
+            box-shadow: var(--shadow-sm);
+            display: flex; flex-direction: column;
+            text-decoration: none; color: inherit;
+            transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-strong);
+            text-decoration: none;
+        }
+        .project-icon {
+            width: 52px; height: 52px; border-radius: 13px;
+            background: var(--surface-2);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+        .project-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .project-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600; font-size: 1.05rem; margin: 0 0 6px;
+        }
+        .project-desc { color: var(--text-muted); font-size: .9rem; margin: 0 0 14px; flex: 1; }
+        .project-foot {
+            display: flex; align-items: center; justify-content: space-between;
+            font-size: .82rem; color: var(--text-soft);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .project-foot .arrow { color: var(--accent); transition: transform .2s ease; }
+        .project-card:hover .arrow { transform: translateX(3px); }
+
+        /* ===== Education / Certs cards ===== */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .info-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 22px;
+            box-shadow: var(--shadow-sm);
+        }
+        .info-card h4 {
+            margin: 0 0 14px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .info-card h4 svg { width: 18px; height: 18px; color: var(--accent); }
+        .info-card p { margin: 0; color: var(--text-muted); font-size: .94rem; }
+        .info-card .lead { color: var(--text); font-weight: 600; }
+        .cert-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+        .cert-list li {
+            display: flex; align-items: center; gap: 10px;
+            color: var(--text); font-size: .92rem;
+        }
+        .cert-list li svg { width: 16px; height: 16px; color: var(--success); flex-shrink: 0; }
+
+        /* ===== Contact ===== */
+        .contact-card {
+            background: linear-gradient(135deg, #0b1020 0%, #1a2454 100%);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: grid; grid-template-columns: 1.4fr 1fr;
+            gap: 32px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-card::before {
+            content: ""; position: absolute; inset: 0;
+            background:
+                radial-gradient(500px 200px at 100% 0%, rgba(110,75,255,.4), transparent 70%),
+                radial-gradient(400px 200px at 0% 100%, rgba(47,91,255,.3), transparent 70%);
+            pointer-events: none;
+        }
+        .contact-card > * { position: relative; }
+        .contact-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em;
+            margin: 0 0 8px;
+        }
+        .contact-card p { color: rgba(255,255,255,.7); margin: 0 0 20px; }
+        .contact-card .cta-row .btn-primary {
+            background: #fff; color: var(--text);
+        }
+        .contact-card .cta-row .btn-ghost {
+            background: rgba(255,255,255,.08);
+            color: #fff;
+            border-color: rgba(255,255,255,.18);
+        }
+        .contact-card .cta-row .btn-ghost:hover { background: rgba(255,255,255,.14); }
+        .socials { display: flex; flex-direction: column; gap: 10px; }
+        .social-link {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 12px;
+            color: #fff; text-decoration: none;
+            transition: background .2s ease, transform .15s ease;
+        }
+        .social-link:hover { background: rgba(255,255,255,.12); transform: translateY(-1px); text-decoration: none; }
+        .social-link svg { width: 18px; height: 18px; }
+        .social-link .handle { font-weight: 600; }
+        .social-link .label { color: rgba(255,255,255,.6); font-size: .82rem; margin-left: auto; }
+
+        /* ===== Footer ===== */
+        .footer {
+            margin-top: 60px; padding-top: 28px;
+            border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+            color: var(--text-soft); font-size: .88rem;
+        }
+        .footer a { color: var(--text-muted); }
+
+        /* ===== Animations ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section, .hero { animation: fadeUp .6s ease both; }
+        .section:nth-child(2) { animation-delay: .05s; }
+        .section:nth-child(3) { animation-delay: .1s; }
+        .section:nth-child(4) { animation-delay: .15s; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 820px) {
+            .wrap { padding: 32px 18px 60px; }
+            .hero { grid-template-columns: 1fr; padding: 28px; text-align: center; gap: 22px; }
+            .avatar { margin: 0 auto; width: 140px; height: 140px; }
+            .hero-meta { justify-content: center; }
+            .cta-row { justify-content: center; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .skill-groups, .projects-grid, .two-col { grid-template-columns: 1fr; }
+            .contact-card { grid-template-columns: 1fr; padding: 28px; }
+            .section { margin-top: 56px; }
+            .section-title { font-size: 1.6rem; }
+            .tl-top { flex-direction: column; }
+            .tl-date { font-size: .72rem; }
         }
     </style>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="profile-avatar">
-            <img src="/src/images/profile.jpg" alt="Alan Axel Castro Resendiz">
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                Back to Willydit
+            </a>
+            <a href="/" class="nav-brand">
+                <img src="/src/images/willydi_logo.png" alt="Willydit">
+                <span>WILLYDIT</span>
+            </a>
         </div>
-        <div class="profile-name">Alan Axel Castro Resendiz</div>
-        <div class="profile-role">He/Him &mdash; Programmer Analyst at Amazon</div>
-        <div class="profile-bio">
-            <strong>Location:</strong> Miguel Hidalgo, CDMX, Ciudad de México, México<br><br>
-            Computer Science Engineer passionate about learning new technologies, especially in Machine Learning, UX/UI Design, Software Development, and Data Analysis. Alan's goal is to build solutions that positively impact the world through software and AI.<br><br>
-            <div style="text-align:left; margin: 0 auto; max-width: 340px;">
-                <strong>Experience:</strong>
-                <ul style="list-style:none; padding:0; margin:16px 0 0 0;">
-                    <li style="display:flex;align-items:center;margin-bottom:16px;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="width:32px;height:32px;margin-right:12px;background:#fff;border-radius:8px;">
-                        <div>
-                            <a href="https://www.amazon.com/" target="_blank" style="font-weight:600;color:#1a73e8;text-decoration:none;">Amazon</a><br>
-                            Programmer Analyst (Amazon Music Technologies)<br>
-                            <span style="color:#888;font-size:0.97em;">Nov 2024 - Present</span>
-                        </div>
-                    </li>
-                    <li style="display:flex;align-items:center;margin-bottom:16px;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mitacs_logo.png" alt="Mitacs" style="width:32px;height:32px;margin-right:12px;background:#fff;border-radius:8px;">
-                        <div>
-                            <a href="https://www.mitacs.ca/" target="_blank" style="font-weight:600;color:#1a73e8;text-decoration:none;">Mitacs</a><br>
-                            Artificial Intelligence Researcher Intern<br>
-                            <span style="color:#888;font-size:0.97em;">Jun 2025 - Aug 2025</span>
-                        </div>
-                    </li>
-                    <li style="display:flex;align-items:center;margin-bottom:16px;">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW Group" style="width:32px;height:32px;margin-right:12px;background:#fff;border-radius:8px;">
-                        <div>
-                            <a href="https://www.bmwgroup.com/" target="_blank" style="font-weight:600;color:#1a73e8;text-decoration:none;">BMW Group</a><br>
-                            End Devices Intern<br>
-                            <span style="color:#888;font-size:0.97em;">Jul 2024 - Nov 2024</span>
-                        </div>
-                    </li>
-                    <li style="display:flex;align-items:center;margin-bottom:16px;">
-                        <img src="https://www.ipicyt.edu.mx/sites/all/themes/ipicyt/logo.png" alt="IPICYT" style="width:32px;height:32px;margin-right:12px;background:#fff;border-radius:8px;">
-                        <div>
-                            <a href="https://www.ipicyt.edu.mx/" target="_blank" style="font-weight:600;color:#1a73e8;text-decoration:none;">IPICYT</a><br>
-                            IT Intern<br>
-                            <span style="color:#888;font-size:0.97em;">Jan 2024 - Jun 2024</span>
-                        </div>
-                    </li>
-                    <li style="display:flex;align-items:center;margin-bottom:16px;">
-                        <img src="https://www.cicsab.edu.mx/wp-content/uploads/2021/09/cicsab-logo.png" alt="Centro de Investigación en Ciencias de la Salud y Biomedicina" style="width:32px;height:32px;margin-right:12px;background:#fff;border-radius:8px;">
-                        <div>
-                            <a href="https://www.cicsab.edu.mx/" target="_blank" style="font-weight:600;color:#1a73e8;text-decoration:none;">Centro de Investigación en Ciencias de la Salud y Biomedicina</a><br>
-                            Research Assistant<br>
-                            <span style="color:#888;font-size:0.97em;">Jan 2024 - Jun 2024</span>
-                        </div>
-                    </li>
-                </ul>
-                <strong>Education:</strong> Universidad Autónoma de San Luis Potosí, B.S. in Computational Science (2020-2024, GPA: 91.7/100)<br>
-                <strong>Certifications:</strong> TOEFL ITP, HackerRank JavaScript (Basic), HackerRank Problem Solving (Intermediate)<br><br>
-                <strong>Projects:</strong> Creator of Auto Sender (automation tool for scheduled messages), Room Reserve (blockchain-based travel app), and more.<br><br>
-                <strong>Interests:</strong> Artificial Intelligence, Data Analysis, Web Development, Hackathons, Community Building.<br><br>
-                <strong>Contact:</strong> <a href="mailto:alanaxelcastroresendiz@gmail.com">alanaxelcastroresendiz@gmail.com</a> &bull; <a href="tel:+524871442708">+52 487 144 2708</a>
+    </nav>
+
+    <main class="wrap">
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <div class="avatar">
+                <img src="/src/images/profile.jpg" alt="Alan Axel Castro Reséndiz">
+                <span class="avatar-status">Available</span>
             </div>
+            <div>
+                <h1 class="hero-name">Alan Axel Castro Reséndiz</h1>
+                <p class="hero-role"><strong>Programmer Analyst</strong> at Amazon Music Technologies · Builder of mobile + AI products</p>
+                <div class="hero-meta">
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Miguel Hidalgo, CDMX · México
+                    </span>
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Open to collabs
+                    </span>
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        CST (UTC-6)
+                    </span>
+                </div>
+                <div class="cta-row">
+                    <a href="mailto:alanaxelcastroresendiz@gmail.com" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Get in touch
+                    </a>
+                    <a href="https://www.linkedin.com/in/alanaxelcastroresendiz/" target="_blank" rel="noopener" class="btn btn-ghost">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43c-1.14 0-2.07-.93-2.07-2.07s.93-2.07 2.07-2.07 2.07.93 2.07 2.07c0 1.14-.93 2.07-2.07 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/alancasre133" target="_blank" rel="noopener" class="btn btn-ghost">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Stats ===== -->
+        <div class="stats">
+            <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years coding</div></div>
+            <div class="stat"><div class="stat-num">4</div><div class="stat-label">Apps shipped</div></div>
+            <div class="stat"><div class="stat-num">91.7</div><div class="stat-label">GPA / 100</div></div>
+            <div class="stat"><div class="stat-num">3</div><div class="stat-label">Countries worked</div></div>
         </div>
-        <div class="profile-contact">
-            <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/alanaxelcastroresendiz/" target="_blank">alanaxelcastroresendiz</a></div>
-            <div><strong>GitHub:</strong> <a href="https://github.com/alancasre133" target="_blank">alancasre133</a></div>
-        </div>
-        <div class="footer">&copy; 2026 Willydit. All rights reserved.</div>
-    </div>
+
+        <!-- ===== About ===== -->
+        <section class="section">
+            <div class="section-label">01 · About</div>
+            <h2 class="section-title">Engineering with curiosity.</h2>
+            <p class="section-sub">A short version, in case you're skimming.</p>
+            <div class="about-card">
+                I'm a <strong>Computer Science Engineer</strong> passionate about building products that sit at the intersection of <strong>machine learning</strong>, <strong>mobile development</strong>, and <strong>thoughtful UX</strong>. Today I work on <strong>Amazon Music Technologies</strong>, and on the side I ship apps under the <strong>Willydit</strong> umbrella — from AI ad-copy tools to audio cleaners. My north star: software that quietly makes someone's day a bit better.
+            </div>
+        </section>
+
+        <!-- ===== Skills ===== -->
+        <section class="section">
+            <div class="section-label">02 · Toolbox</div>
+            <h2 class="section-title">Technologies I reach for.</h2>
+            <p class="section-sub">A practical stack honed across product, research, and side-project work.</p>
+            <div class="skill-groups">
+                <div class="skill-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        Languages
+                    </h4>
+                    <div class="tag-row">
+                        <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Dart</span><span class="tag">Java</span><span class="tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        Mobile &amp; Frontend
+                    </h4>
+                    <div class="tag-row">
+                        <span class="tag">Flutter</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        AI &amp; Data
+                    </h4>
+                    <div class="tag-row">
+                        <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">Pandas</span><span class="tag">LLM tooling</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"></path></svg>
+                        Platforms &amp; Cloud
+                    </h4>
+                    <div class="tag-row">
+                        <span class="tag">AWS</span><span class="tag">Firebase</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Git</span><span class="tag">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Experience ===== -->
+        <section class="section">
+            <div class="section-label">03 · Experience</div>
+            <h2 class="section-title">Where I've been.</h2>
+            <p class="section-sub">From research labs to global product teams.</p>
+            <div class="timeline">
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-card">
+                        <div class="tl-head">
+                            <div class="tl-logo" style="background: linear-gradient(135deg, #ff9900, #ff6a00);">A</div>
+                            <div class="tl-meta">
+                                <div class="tl-top">
+                                    <div>
+                                        <a href="https://www.amazon.com/" target="_blank" rel="noopener" class="tl-company">Amazon</a>
+                                        <div class="tl-role">Programmer Analyst · Amazon Music Technologies</div>
+                                    </div>
+                                    <div class="tl-date">NOV 2024 — PRESENT</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-card">
+                        <div class="tl-head">
+                            <div class="tl-logo" style="background: linear-gradient(135deg, #00a3e0, #0066b3);">M</div>
+                            <div class="tl-meta">
+                                <div class="tl-top">
+                                    <div>
+                                        <a href="https://www.mitacs.ca/" target="_blank" rel="noopener" class="tl-company">Mitacs</a>
+                                        <div class="tl-role">Artificial Intelligence Researcher Intern</div>
+                                    </div>
+                                    <div class="tl-date">JUN 2025 — AUG 2025</div>
+                                </div>
+                                <p class="tl-desc">Contributed to the development of a mobile calorie-estimation app that analyzes food photos using LLM-powered AI and 3D reconstruction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-card">
+                        <div class="tl-head">
+                            <div class="tl-logo" style="background: linear-gradient(135deg, #1c69d4, #0653b6);">B</div>
+                            <div class="tl-meta">
+                                <div class="tl-top">
+                                    <div>
+                                        <a href="https://www.bmwgroup.com/" target="_blank" rel="noopener" class="tl-company">BMW Group</a>
+                                        <div class="tl-role">End Devices Intern</div>
+                                    </div>
+                                    <div class="tl-date">JUL 2024 — NOV 2024</div>
+                                </div>
+                                <p class="tl-desc">Maintained and shipped updates to the internal Asset Management app, and built automated workflows for multi-purpose tasks in JavaScript and React.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-card">
+                        <div class="tl-head">
+                            <div class="tl-logo" style="background: linear-gradient(135deg, #6e4bff, #2f5bff);">I</div>
+                            <div class="tl-meta">
+                                <div class="tl-top">
+                                    <div>
+                                        <a href="https://www.ipicyt.edu.mx/" target="_blank" rel="noopener" class="tl-company">IPICYT</a>
+                                        <div class="tl-role">IT Intern</div>
+                                    </div>
+                                    <div class="tl-date">JAN 2024 — JUN 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-card">
+                        <div class="tl-head">
+                            <div class="tl-logo" style="background: linear-gradient(135deg, #16a36b, #0e7c4e);">C</div>
+                            <div class="tl-meta">
+                                <div class="tl-top">
+                                    <div>
+                                        <a href="https://www.cicsab.edu.mx/" target="_blank" rel="noopener" class="tl-company">CICSaB</a>
+                                        <div class="tl-role">Research Assistant · Center for Health Sciences &amp; Biomedicine</div>
+                                    </div>
+                                    <div class="tl-date">JAN 2024 — JUN 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Projects ===== -->
+        <section class="section">
+            <div class="section-label">04 · Built by me</div>
+            <h2 class="section-title">Selected projects.</h2>
+            <p class="section-sub">Mobile apps live on the Play Store under the Willydit umbrella.</p>
+            <div class="projects-grid">
+                <a class="project-card" href="https://play.google.com/store/apps/details?id=com.adcraft.adcraft" target="_blank" rel="noopener">
+                    <div class="project-icon"><img src="/src/images/adcraft.png" alt="AdCraft"></div>
+                    <h3 class="project-name">AdCraft</h3>
+                    <p class="project-desc">AI copywriter that turns a product idea into ready-to-ship ad creatives.</p>
+                    <div class="project-foot"><span>play.google</span><span class="arrow">→</span></div>
+                </a>
+                <a class="project-card" href="https://play.google.com/store/apps/details?id=com.audiocleaner.app" target="_blank" rel="noopener">
+                    <div class="project-icon"><img src="/src/images/audiocleaner.png" alt="Audio Cleaner"></div>
+                    <h3 class="project-name">Audio Cleaner</h3>
+                    <p class="project-desc">Removes background noise from audio &amp; video in a single tap. Built with Flutter + FFmpeg.</p>
+                    <div class="project-foot"><span>play.google</span><span class="arrow">→</span></div>
+                </a>
+                <a class="project-card" href="https://play.google.com/store/apps/details?id=com.DigitalAndroidFocusReminder.focusreminder" target="_blank" rel="noopener">
+                    <div class="project-icon"><img src="/src/images/autosender.png" alt="Auto Sender"></div>
+                    <h3 class="project-name">Auto Sender</h3>
+                    <p class="project-desc">Schedule and automate recurring messages so you never miss a follow-up.</p>
+                    <div class="project-foot"><span>play.google</span><span class="arrow">→</span></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Education & Certifications ===== -->
+        <section class="section">
+            <div class="section-label">05 · Credentials</div>
+            <h2 class="section-title">Education &amp; certifications.</h2>
+            <p class="section-sub">The formal stuff.</p>
+            <div class="two-col">
+                <div class="info-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                        Education
+                    </h4>
+                    <p class="lead">B.S. in Computational Science</p>
+                    <p>Universidad Autónoma de San Luis Potosí · 2020 – 2024</p>
+                    <p style="margin-top:8px; color: var(--text-soft); font-family:'JetBrains Mono', monospace; font-size:.82rem;">GPA · 91.7 / 100</p>
+                </div>
+                <div class="info-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        Certifications
+                    </h4>
+                    <ul class="cert-list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>TOEFL ITP</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>HackerRank · JavaScript (Basic)</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>HackerRank · Problem Solving (Intermediate)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact ===== -->
+        <section class="section">
+            <div class="contact-card">
+                <div>
+                    <h3>Have an idea worth building?</h3>
+                    <p>Always happy to chat about product, ML, or a side-project that could be more. Reply within 24h.</p>
+                    <div class="cta-row">
+                        <a href="mailto:alanaxelcastroresendiz@gmail.com" class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            Email me
+                        </a>
+                        <a href="tel:+524871442708" class="btn btn-ghost">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +52 487 144 2708
+                        </a>
+                    </div>
+                </div>
+                <div class="socials">
+                    <a class="social-link" href="https://www.linkedin.com/in/alanaxelcastroresendiz/" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43c-1.14 0-2.07-.93-2.07-2.07s.93-2.07 2.07-2.07 2.07.93 2.07 2.07c0 1.14-.93 2.07-2.07 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                        <span class="handle">alanaxelcastroresendiz</span>
+                        <span class="label">LinkedIn</span>
+                    </a>
+                    <a class="social-link" href="https://github.com/alancasre133" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                        <span class="handle">alancasre133</span>
+                        <span class="label">GitHub</span>
+                    </a>
+                    <a class="social-link" href="mailto:alanaxelcastroresendiz@gmail.com">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span class="handle">alanaxelcastroresendiz@gmail.com</span>
+                        <span class="label">Email</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div>&copy; 2026 Alan Axel Castro Reséndiz · Made with care under <a href="/">Willydit</a></div>
+            <div>Last updated · June 2026</div>
+        </footer>
+    </main>
 </body>
 </html>
